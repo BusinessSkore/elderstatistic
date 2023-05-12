@@ -4112,7 +4112,7 @@ export default defineComponent({
     let joined = this.evaluacion.cedula + this.evaluacion.fecha;
     // this.$store.state.user.consultasAfiliados = `https://isys-assets-bucket.s3.amazonaws.com/consultasAfiliados/sample.jpg`;
     this.$store.state.user.consultasAfiliados = `https://isys-assets-bucket.s3.amazonaws.com/consultasAfiliados/${joined}.jpg`;
-    this.$store.state.user.evaluacion = `https://isys-assets-bucket.s3.amazonaws.com/evaluaciones/sample.jpg`;
+    // this.$store.state.user.evaluacion = `https://isys-assets-bucket.s3.amazonaws.com/evaluaciones/sample.jpg`;
     this.$store.state.user.evaluacion = `https://isys-assets-bucket.s3.amazonaws.com/evaluaciones/${joined}.jpg`;
   },
 
@@ -4448,7 +4448,7 @@ export default defineComponent({
     },
 
     showModalEVALMethod() {
-      this.$store.state.user.evaluacion = `https://isys-assets-bucket.s3.amazonaws.com/evaluaciones/sample.jpg`;
+      // this.$store.state.user.evaluacion = `https://isys-assets-bucket.s3.amazonaws.com/evaluaciones/sample.jpg`;
       this.showModalEVAL = !this.showModalEVAL;
     },
 
