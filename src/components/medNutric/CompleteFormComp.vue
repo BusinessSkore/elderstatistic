@@ -1837,7 +1837,10 @@
                 <i class="fas fa-save"></i> Guardar
               </button>
               <button
-                v-if="this.$store.state.user.type == 'Médico Nutricionista Domiciliario'"
+                v-if="
+                  this.$store.state.user.type ==
+                    'Médico Nutricionista Domiciliario'
+                "
                 :disabled="
                   !evaluacion.nombre ||
                     !evaluacion.apellido ||
@@ -5518,35 +5521,36 @@ export default defineComponent({
       this.evaluacion.riesgoNutricional = riesgoNutricional;
     },
 
+    // Criterio Nuevo sin kit 1
     asignarKit(cualificacionImc: string, cualificacionFuerza: string) {
       let kitAsignado;
       if (cualificacionImc == "SOBREPESO" && cualificacionFuerza == "FUERTE") {
-        kitAsignado = "KIT 1";
+        kitAsignado = "KIT 2B";
       } else if (
         cualificacionImc == "OBESIDAD I" &&
         cualificacionFuerza == "FUERTE"
       ) {
-        kitAsignado = "KIT 1";
+        kitAsignado = "KIT 2B";
       } else if (
         cualificacionImc == "OBESIDAD II" &&
         cualificacionFuerza == "NORMAL"
       ) {
-        kitAsignado = "KIT 1";
+        kitAsignado = "KIT 2B";
       } else if (
         cualificacionImc == "OBESIDAD II" &&
         cualificacionFuerza == "FUERTE"
       ) {
-        kitAsignado = "KIT 1";
+        kitAsignado = "KIT 2B";
       } else if (
         cualificacionImc == "OBESIDAD EXTREMA" &&
         cualificacionFuerza == "NORMAL"
       ) {
-        kitAsignado = "KIT 1";
+        kitAsignado = "KIT 2B";
       } else if (
         cualificacionImc == "OBESIDAD EXTREMA" &&
         cualificacionFuerza == "FUERTE"
       ) {
-        kitAsignado = "KIT 1";
+        kitAsignado = "KIT 2B";
       } else if (
         cualificacionImc == "OBESIDAD II" &&
         cualificacionFuerza == "DEBIL"
@@ -5612,6 +5616,102 @@ export default defineComponent({
       }
       this.evaluacion.kit = kitAsignado;
     },
+
+    // Criterio Antiguo con kit 1
+    // asignarKit(cualificacionImc: string, cualificacionFuerza: string) {
+    //   let kitAsignado;
+    //   if (cualificacionImc == "SOBREPESO" && cualificacionFuerza == "FUERTE") {
+    //     kitAsignado = "KIT 1";
+    //   } else if (
+    //     cualificacionImc == "OBESIDAD I" &&
+    //     cualificacionFuerza == "FUERTE"
+    //   ) {
+    //     kitAsignado = "KIT 1";
+    //   } else if (
+    //     cualificacionImc == "OBESIDAD II" &&
+    //     cualificacionFuerza == "NORMAL"
+    //   ) {
+    //     kitAsignado = "KIT 1";
+    //   } else if (
+    //     cualificacionImc == "OBESIDAD II" &&
+    //     cualificacionFuerza == "FUERTE"
+    //   ) {
+    //     kitAsignado = "KIT 1";
+    //   } else if (
+    //     cualificacionImc == "OBESIDAD EXTREMA" &&
+    //     cualificacionFuerza == "NORMAL"
+    //   ) {
+    //     kitAsignado = "KIT 1";
+    //   } else if (
+    //     cualificacionImc == "OBESIDAD EXTREMA" &&
+    //     cualificacionFuerza == "FUERTE"
+    //   ) {
+    //     kitAsignado = "KIT 1";
+    //   } else if (
+    //     cualificacionImc == "OBESIDAD II" &&
+    //     cualificacionFuerza == "DEBIL"
+    //   ) {
+    //     kitAsignado = "KIT 2A";
+    //   } else if (
+    //     cualificacionImc == "OBESIDAD EXTREMA" &&
+    //     cualificacionFuerza == "DEBIL"
+    //   ) {
+    //     kitAsignado = "KIT 2A";
+    //   } else if (
+    //     cualificacionImc == "INFRAPESO" &&
+    //     cualificacionFuerza == "NORMAL"
+    //   ) {
+    //     kitAsignado = "KIT 2B";
+    //   } else if (
+    //     cualificacionImc == "INFRAPESO" &&
+    //     cualificacionFuerza == "FUERTE"
+    //   ) {
+    //     kitAsignado = "KIT 2B";
+    //   } else if (
+    //     cualificacionImc == "NORMOPESO" &&
+    //     cualificacionFuerza == "NORMAL"
+    //   ) {
+    //     kitAsignado = "KIT 2B";
+    //   } else if (
+    //     cualificacionImc == "NORMOPESO" &&
+    //     cualificacionFuerza == "FUERTE"
+    //   ) {
+    //     kitAsignado = "KIT 2B";
+    //   } else if (
+    //     cualificacionImc == "SOBREPESO" &&
+    //     cualificacionFuerza == "NORMAL"
+    //   ) {
+    //     kitAsignado = "KIT 2B";
+    //   } else if (
+    //     cualificacionImc == "OBESIDAD I" &&
+    //     cualificacionFuerza == "NORMAL"
+    //   ) {
+    //     kitAsignado = "KIT 2B";
+    //   } else if (
+    //     cualificacionImc == "INFRAPESO" &&
+    //     cualificacionFuerza == "DEBIL"
+    //   ) {
+    //     kitAsignado = "KIT 3";
+    //   } else if (
+    //     cualificacionImc == "NORMOPESO" &&
+    //     cualificacionFuerza == "DEBIL"
+    //   ) {
+    //     kitAsignado = "KIT 3";
+    //   } else if (
+    //     cualificacionImc == "SOBREPESO" &&
+    //     cualificacionFuerza == "DEBIL"
+    //   ) {
+    //     kitAsignado = "KIT 3";
+    //   } else if (
+    //     cualificacionImc == "OBESIDAD I" &&
+    //     cualificacionFuerza == "DEBIL"
+    //   ) {
+    //     kitAsignado = "KIT 3";
+    //   } else {
+    //     kitAsignado = "CUALIFICACION IMC O CUALIFICACION FUERZA INCORRECTOS";
+    //   }
+    //   this.evaluacion.kit = kitAsignado;
+    // },
 
     fixFlexibilidad_miembro_inferior() {
       if (this.evaluacion.flexibilidad_miembro_inferior > 0) {
