@@ -357,6 +357,23 @@
     </div>
     <div
       v-show="!cargando"
+      v-if="this.$store.state.user.type == 'Administrador de Datos'"
+      class="general"
+    >
+      <h3>
+        Dashboard
+      </h3>
+      <a
+        target="_blank"
+        class="navbar-option"
+        href="https://isys-assets-bucket.s3.amazonaws.com/AWSDynamoDBData/backup.json"
+        ><i class="fas fa-download"></i> Descargar Backup</a
+      >
+      <!-- <div id="embeddingContainerGtorSenasa"></div> -->
+      <br />
+    </div>
+    <div
+      v-show="!cargando"
       v-if="this.$store.state.user.type == 'Gestor ARS SeNaSa'"
       class="general"
     >

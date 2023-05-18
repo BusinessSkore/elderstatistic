@@ -28,7 +28,8 @@ let allRoles = [
   "Gerencia ARS SeNaSa",
   "Agente de Autorización",
   "Gestor ARS SeNaSa",
-  "Médico Nutricionista Domiciliario"
+  "Médico Nutricionista Domiciliario",
+  "Administrador de Datos"
 ];
 
 // Centro -------------------------------------------------------------------
