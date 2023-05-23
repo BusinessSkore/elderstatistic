@@ -733,6 +733,8 @@ export default {
           nombre: "MARIO JIMENEZ",
         },{
           nombre: "SANTOS GAMALIER GARABITO",
+        },{
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
         },
       ];
       this.$store.state.user.filteredSupervisores = [
@@ -885,6 +887,8 @@ export default {
           nombre: "MARIO JIMENEZ",
         },{
           nombre: "SANTOS GAMALIER GARABITO",
+        },{
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
         },
       ];
     },
