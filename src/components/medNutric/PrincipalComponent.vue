@@ -182,7 +182,7 @@
                           >Supervisor:</label
                         >
                         <select
-                        disabled
+                          disabled
                           id="supervisor"
                           type="supervisor"
                           @change="loadEvaluacions()"
@@ -743,6 +743,9 @@ export default {
         {
           nombre: "SANTOS GAMALIER GARABITO",
         },
+        {
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
+        },
       ];
       this.$store.state.user.filteredSupervisores = [
         {
@@ -903,6 +906,9 @@ export default {
         },
         {
           nombre: "SANTOS GAMALIER GARABITO",
+        },
+        {
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
         },
       ];
     },

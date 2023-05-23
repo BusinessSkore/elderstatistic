@@ -808,18 +808,27 @@ export default {
         },
         {
           nombre: "JONATHAN APOLINARIO",
-        },        {
+        },
+        {
           nombre: "GREGORIO RAMIREZ PINEDA",
-        },        {
+        },
+        {
           nombre: "INES FERRER",
-        },{
+        },
+        {
           nombre: "JORGE VILLALONA PAULINO",
-        },{
+        },
+        {
           nombre: "RONNALD MEDINA ALCANTARA",
-        },{
+        },
+        {
           nombre: "EMMANUEL SEVERINO MEJIA",
-        },{
+        },
+        {
           nombre: "ANGEL VALDEZ PICHARDO",
+        },
+        {
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
         },
       ];
 
@@ -958,18 +967,27 @@ export default {
         },
         {
           nombre: "JONATHAN APOLINARIO",
-        },        {
+        },
+        {
           nombre: "GREGORIO RAMIREZ PINEDA",
-        },        {
+        },
+        {
           nombre: "INES FERRER",
-        },{
+        },
+        {
           nombre: "JORGE VILLALONA PAULINO",
-        },{
+        },
+        {
           nombre: "RONNALD MEDINA ALCANTARA",
-        },{
+        },
+        {
           nombre: "EMMANUEL SEVERINO MEJIA",
-        },{
+        },
+        {
           nombre: "ANGEL VALDEZ PICHARDO",
+        },
+        {
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
         },
       ];
     },

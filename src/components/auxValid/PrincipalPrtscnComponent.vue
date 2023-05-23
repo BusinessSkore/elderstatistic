@@ -435,11 +435,13 @@ export default {
           .includes(this.$store.state.user.supervisor.toLowerCase());
       });
 
-      this.$store.state.user.listToPrint = this.$store.state.user.listToPrint.filter((evaluacion: any) => {
-        return evaluacion.supervisor
-          .toLowerCase()
-          .includes(this.$store.state.user.supervisor.toLowerCase());
-      });
+      this.$store.state.user.listToPrint = this.$store.state.user.listToPrint.filter(
+        (evaluacion: any) => {
+          return evaluacion.supervisor
+            .toLowerCase()
+            .includes(this.$store.state.user.supervisor.toLowerCase());
+        }
+      );
 
       // Ordenando de Manera ascendente
       this.evaluacions = this.evaluacions.sort(
@@ -823,25 +825,40 @@ export default {
         },
         {
           nombre: "JUAN JOSE BONILLA ESPINO",
-        },        {
+        },
+        {
           nombre: "JONATHAN APOLINARIO",
-        },        {
+        },
+        {
           nombre: "GREGORIO RAMIREZ PINEDA",
-        },        {
+        },
+        {
           nombre: "INES FERRER",
-        },{
+        },
+        {
           nombre: "JORGE VILLALONA PAULINO",
-        },{
+        },
+        {
           nombre: "RONNALD MEDINA ALCANTARA",
-        },{
+        },
+        {
           nombre: "EMMANUEL SEVERINO MEJIA",
-        },{
+        },
+        {
           nombre: "ANGEL VALDEZ PICHARDO",
-        },        {
+        },
+        {
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
+        },
+        {
           nombre: "MARIO JIMENEZ",
-        },{
+        },
+        {
           nombre: "SANTOS GAMALIER GARABITO",
-        },{
+        },        {
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
+        },
+        {
           nombre: "RAFAEL VASQUEZ SANCHEZ ",
         },
       ];
@@ -977,25 +994,40 @@ export default {
         },
         {
           nombre: "JUAN JOSE BONILLA ESPINO",
-        },        {
+        },
+        {
           nombre: "JONATHAN APOLINARIO",
-        },        {
+        },
+        {
           nombre: "GREGORIO RAMIREZ PINEDA",
-        },        {
+        },
+        {
           nombre: "INES FERRER",
-        },{
+        },
+        {
           nombre: "JORGE VILLALONA PAULINO",
-        },{
+        },
+        {
           nombre: "RONNALD MEDINA ALCANTARA",
-        },{
+        },
+        {
           nombre: "EMMANUEL SEVERINO MEJIA",
-        },{
+        },
+        {
           nombre: "ANGEL VALDEZ PICHARDO",
-        },        {
+        },
+        {
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
+        },
+        {
           nombre: "MARIO JIMENEZ",
-        },{
+        },
+        {
           nombre: "SANTOS GAMALIER GARABITO",
-        },{
+        },        {
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
+        },
+        {
           nombre: "RAFAEL VASQUEZ SANCHEZ ",
         },
       ];

@@ -820,6 +820,8 @@ export default {
         },{
           nombre: "ANGEL VALDEZ PICHARDO",
         },        {
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
+        },        {
           nombre: "MARIO JIMENEZ",
         },{
           nombre: "SANTOS GAMALIER GARABITO",
@@ -973,6 +975,8 @@ export default {
           nombre: "EMMANUEL SEVERINO MEJIA",
         },{
           nombre: "ANGEL VALDEZ PICHARDO",
+        },        {
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
         },        {
           nombre: "MARIO JIMENEZ",
         },{

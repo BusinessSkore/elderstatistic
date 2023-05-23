@@ -715,25 +715,40 @@ export default {
         },
         {
           nombre: "JUAN JOSE BONILLA ESPINO",
-        },        {
+        },
+        {
           nombre: "JONATHAN APOLINARIO",
-        },        {
+        },
+        {
           nombre: "GREGORIO RAMIREZ PINEDA",
-        },        {
+        },
+        {
           nombre: "INES FERRER",
-        },{
+        },
+        {
           nombre: "JORGE VILLALONA PAULINO",
-        },{
+        },
+        {
           nombre: "RONNALD MEDINA ALCANTARA",
-        },{
+        },
+        {
           nombre: "EMMANUEL SEVERINO MEJIA",
-        },{
+        },
+        {
           nombre: "ANGEL VALDEZ PICHARDO",
-        },        {
+        },
+        {
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
+        },
+        {
           nombre: "MARIO JIMENEZ",
-        },{
+        },
+        {
           nombre: "SANTOS GAMALIER GARABITO",
-        },{
+        },        {
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
+        },
+        {
           nombre: "RAFAEL VASQUEZ SANCHEZ ",
         },
       ];
@@ -869,25 +884,40 @@ export default {
         },
         {
           nombre: "JUAN JOSE BONILLA ESPINO",
-        },        {
+        },
+        {
           nombre: "JONATHAN APOLINARIO",
-        },        {
+        },
+        {
           nombre: "GREGORIO RAMIREZ PINEDA",
-        },        {
+        },
+        {
           nombre: "INES FERRER",
-        },{
+        },
+        {
           nombre: "JORGE VILLALONA PAULINO",
-        },{
+        },
+        {
           nombre: "RONNALD MEDINA ALCANTARA",
-        },{
+        },
+        {
           nombre: "EMMANUEL SEVERINO MEJIA",
-        },{
+        },
+        {
           nombre: "ANGEL VALDEZ PICHARDO",
-        },        {
+        },
+        {
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
+        },
+        {
           nombre: "MARIO JIMENEZ",
-        },{
+        },
+        {
           nombre: "SANTOS GAMALIER GARABITO",
-        },{
+        },        {
+          nombre: "RAFAEL VASQUEZ SANCHEZ ",
+        },
+        {
           nombre: "RAFAEL VASQUEZ SANCHEZ ",
         },
       ];
