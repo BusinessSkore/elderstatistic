@@ -1,4 +1,6 @@
 <template>
+  <!-- {{ this.evaluacion }} -->
+  
   <div v-if="cargando" class="spin">
     <img
       class="img"
@@ -72,6 +74,21 @@
   >
     Iterate Run Data Fixer Corregir Nuevos
   </button>
+
+  <!-- CUARTO CORRECTOR DE REGISTROS  -->
+  <br />
+  <br />
+  {{ this.statusProcesoEgresosKit1 }} <br />
+  {{ this.count }}
+  <button
+    :disabled="cargando"
+    @click="iterateRunFixedEgresosKit1()"
+    class="btn btn-secondary btn-sm"
+    type="button"
+  >
+    Iterate Run Data Fixer Egresos Kit1
+  </button>
+  {{ this.resultadoFinal }}
 </template>
 
 <script lang="ts">
@@ -85,6 +102,7 @@ import {
 } from "@/services/evaluacion/Evaluacion";
 import cedulaData from "./cedulas.json";
 import pacienteData from "./pacientesNuevos.json";
+import pacientesEgresarKit1Data from "./PacientesEgresarkit1.json";
 import evaluacionesData from "./evaluaciones.json";
 
 export default {
@@ -96,17 +114,31 @@ export default {
       count: { news: 0, olds: 0, total: 0 },
       cedulas: cedulaData,
       pacientes: pacienteData,
+      pacientesEgresarKit1: pacientesEgresarKit1Data,
       evaluaciones: evaluacionesData,
       statusProceso: "No Comenzado",
       statusProcesoEncontrarNuevos: "No Comenzado",
       statusProcesoCorregirNuevos: "No Comenzado",
+      statusProcesoEgresosKit1: "No Comenzado",
       evaluacion: {} as any,
+      resultadoFinal: [] as any,
       cargando: false,
       cedula: false,
     };
   },
 
   methods: {
+    async iterateRunFixedEgresosKit1() {
+      for (var i = 0; i < this.pacientesEgresarKit1.length; i++) {
+      // for (var i = 0; i < 10; i++) {
+        await this.runFixerEgresarKit1(this.pacientesEgresarKit1[i].cedula);
+        // alert(`Completado ${i + 1} de ${this.evaluaciones.length}`);
+        this.statusProcesoEgresosKit1 = `Completado ${i + 1} de ${
+          this.pacientesEgresarKit1.length
+        }`;
+      }
+    },
+
     async iterateRunFixedCorregirNuevos() {
       for (var i = 0; i < this.pacientes.length; i++) {
         await this.runFixerCorregirNuevos(
@@ -143,28 +175,47 @@ export default {
       }
     },
 
+    async runFixerEgresarKit1(cedula: string) {
+      await this.fetchDataByCedula(cedula);
+
+      // // Consulta Evaluaciones Viejas
+      // const patientData = await getPatient(this.evaluacion.cedula);
+
+      // if (patientData.data.title == "Usuario no Encontrado") {
+      //   patientData.data.Items = [];
+      // }
+
+      // // Consulta Evaluaciones Nuevas
+      // const patientData2 = await getManyByCedula(this.evaluacion.cedula);
+
+      // // Uniendo Evaluaciones Viejas y Nuevas
+      // for (var j = 0; j < patientData2.data.Items.length; j++) {
+      //   patientData.data.Items.push(patientData2.data.Items[j]);
+      // }
+
+      // await this.chageEvaluacion(patientData.data.Items.length - 1);
+      // await this.putItem();
+    },
     async runFixerCorregirNuevos(cedula: string, fecha: string) {
-      
-        await this.fetchData(cedula, fecha);
+      await this.fetchData(cedula, fecha);
 
-        // Consulta Evaluaciones Viejas
-        const patientData = await getPatient(this.evaluacion.cedula);
+      // Consulta Evaluaciones Viejas
+      const patientData = await getPatient(this.evaluacion.cedula);
 
-        if (patientData.data.title == "Usuario no Encontrado") {
-          patientData.data.Items = [];
-        }
+      if (patientData.data.title == "Usuario no Encontrado") {
+        patientData.data.Items = [];
+      }
 
-        // Consulta Evaluaciones Nuevas
-        const patientData2 = await getManyByCedula(this.evaluacion.cedula);
+      // Consulta Evaluaciones Nuevas
+      const patientData2 = await getManyByCedula(this.evaluacion.cedula);
 
-        // Uniendo Evaluaciones Viejas y Nuevas
-        for (var j = 0; j < patientData2.data.Items.length; j++) {
-          patientData.data.Items.push(patientData2.data.Items[j]);
-        }
+      // Uniendo Evaluaciones Viejas y Nuevas
+      for (var j = 0; j < patientData2.data.Items.length; j++) {
+        patientData.data.Items.push(patientData2.data.Items[j]);
+      }
 
-        await this.chageEvaluacion(patientData.data.Items.length - 1);
-        await this.putItem();
-      
+      await this.chageEvaluacion(patientData.data.Items.length - 1);
+      await this.putItem();
     },
 
     async runFixerEncontrarNuevos(cedula: string) {
@@ -241,6 +292,26 @@ export default {
       try {
         const res = await getOneEncontrarNuevos(cedula);
         this.cedula = res.data;
+      } catch (error) {
+        console.error(error);
+      }
+      // this.toggleLoading();
+    },
+
+    async fetchDataByCedula(cedula: string) {
+      // this.toggleLoading();
+      try {
+        const res = await getManyByCedula(cedula);
+        // get last evaluacion
+        this.evaluacion = res.data.Items[res.data.Items.length - 1];
+        this.resultadoFinal.push(
+          { 
+            fecha: this.evaluacion.fecha,
+            cedula: this.evaluacion.cedula,
+            cantidadEvaluaciones: this.evaluacion.cantidadEvaluaciones,
+            status: this.evaluacion.status,
+          }
+        );
       } catch (error) {
         console.error(error);
       }

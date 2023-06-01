@@ -840,7 +840,7 @@ export default defineComponent({
         {
           municipio: "PEDERNALES ",
           provincia: "PEDERNALES ",
-          region: "REGION F (VI)",
+          region: "REGION D (IV)",
         },
         {
           municipio: "OVIEDO ",
@@ -1627,7 +1627,7 @@ export default defineComponent({
         {
           municipio: "PEDERNALES ",
           provincia: "PEDERNALES ",
-          region: "REGION F (VI)",
+          region: "REGION D (IV)",
         },
         {
           municipio: "OVIEDO ",
