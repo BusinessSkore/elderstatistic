@@ -750,6 +750,8 @@ export default {
         },
         {
           nombre: "RAFAEL VASQUEZ SANCHEZ ",
+        },        {
+          nombre: "ROSMERY LIRIANO ",
         },
       ];
       this.$store.state.user.filteredSupervisores = [
@@ -919,6 +921,8 @@ export default {
         },
         {
           nombre: "RAFAEL VASQUEZ SANCHEZ ",
+        },        {
+          nombre: "ROSMERY LIRIANO ",
         },
       ];
     },

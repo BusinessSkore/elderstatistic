@@ -829,6 +829,8 @@ export default {
         },
         {
           nombre: "RAFAEL VASQUEZ SANCHEZ ",
+        },        {
+          nombre: "ROSMERY LIRIANO ",
         },
       ];
 
@@ -988,6 +990,8 @@ export default {
         },
         {
           nombre: "RAFAEL VASQUEZ SANCHEZ ",
+        },        {
+          nombre: "ROSMERY LIRIANO ",
         },
       ];
     },
