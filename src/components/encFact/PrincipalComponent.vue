@@ -837,6 +837,8 @@ export default {
           nombre: "RAFAEL VASQUEZ SANCHEZ ",
         },        {
           nombre: "ROSMERY LIRIANO ",
+        },        {
+          nombre: "VIVIANA FLAQUER",
         },
       ];
       this.$store.state.user.filteredSupervisores = [
@@ -1003,6 +1005,8 @@ export default {
           nombre: "RAFAEL VASQUEZ SANCHEZ ",
         },        {
           nombre: "ROSMERY LIRIANO ",
+        },        {
+          nombre: "VIVIANA FLAQUER",
         },
       ];
     },

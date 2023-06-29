@@ -831,6 +831,8 @@ export default {
           nombre: "RAFAEL VASQUEZ SANCHEZ ",
         },        {
           nombre: "ROSMERY LIRIANO ",
+        },        {
+          nombre: "VIVIANA FLAQUER",
         },
       ];
 
@@ -992,6 +994,8 @@ export default {
           nombre: "RAFAEL VASQUEZ SANCHEZ ",
         },        {
           nombre: "ROSMERY LIRIANO ",
+        },        {
+          nombre: "VIVIANA FLAQUER",
         },
       ];
     },
