@@ -173,6 +173,22 @@
               <i class="fas fa-check"></i> Validar
             </button>
             <button
+              v-if="this.modoForm == 'show' &&
+              this.centro.status !== 'I'
+              "
+              class="btn btn-warning"
+              @click.prevent="DisableCentro(false)"
+              :disabled="
+                !centro.municipio ||
+                  !centro.provincia ||
+                  !centro.region ||
+                  !centro.telefono ||
+                  !centro.unap
+              "
+            >
+              <i class="fas fa-ban"></i> Deshabilitar
+            </button>
+            <button
               v-if="showDelete"
               class="btn btn-info"
               @click.prevent="handleDelete()"
@@ -1845,6 +1861,12 @@ export default defineComponent({
   },
 
   methods: {
+    DisableCentro() {
+      this.centro.status = "I";
+      alert('Centro Deshabilitado Satisfactoriamente')
+      this.createCentro();
+    },
+
     ValidateCentro() {
       this.centro.status = "V";
       alert('Centro Validado Satisfactoriamente')
