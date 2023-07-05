@@ -1071,7 +1071,13 @@ export default defineComponent({
       let edad = Math.floor(
         moment(new Date()).diff(moment(date, "YYYY-MM-DD"), "years", true)
       );
-      if (edad > 124 || edad < 0) {
+      // if (edad > 124 || edad < 0) {
+      //   console.log("Verificar Fecha de Nacimiento");
+      // } else {
+      //   years = edad;
+      // }
+
+      if (edad > 124 || edad < 65) {
         console.log("Verificar Fecha de Nacimiento");
       } else {
         years = edad;
