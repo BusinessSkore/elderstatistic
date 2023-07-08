@@ -363,6 +363,19 @@
                     class="form-control"
                   />
                 </div>
+                <div>
+                  <label
+                    class="ta-l col-form-label col-form-label-sm"
+                    for="nombre_doctor"
+                    >MEDICO:</label
+                  ><input
+                    disabled
+                    id="nombre_doctor"
+                    type="nombre_doctor"
+                    v-model="evaluacion.nombre_doctor"
+                    class="form-control"
+                  />
+                </div>
                 <!-- <div>
                   <label
                     class="ta-l col-form-label col-form-label-sm"
@@ -642,6 +655,7 @@
                 >
                   <i class="fas fa-save"></i> Guardar
                 </button>
+
                 <button
                   v-show="
                     this.evaluacion.statusAdministrativo == 'VALIDADO' ||
@@ -659,6 +673,24 @@
                   >
                     Ver Histórico de Evaluaciones
                   </button>
+                  <!-- <button
+                    v-if="this.evaluacion.status == '3'"
+                    :disabled="
+                      !evaluacion.nombre ||
+                        !evaluacion.apellido ||
+                        !evaluacion.sexo ||
+                        !evaluacion.fechaNacimiento ||
+                        !evaluacion.nss ||
+                        !evaluacion.direccion ||
+                        !evaluacion.telefono ||
+                        !evaluacion.tipo_de_contacto ||
+                        !evaluacion.nombre_contacto
+                    "
+                    class="btn btn-warning"
+                    @click.prevent="revertirEgreso()"
+                  >
+                    <i class="fas fa-backward"></i> Revertir Egreso
+                  </button> -->
                 </div>
               </div>
             </div>
@@ -4082,8 +4114,13 @@ export default defineComponent({
   },
 
   methods: {
+    revertirEgreso() {
+      if (confirm("¿Está Seguro que Desea Revertir Este Egreso?")) {
+        this.evaluacion.status = "1"
+        this.createEvaluacion();
+      }
+    },
 
-    
     imc(peso: number, estatura: number) {
       let estatura_en_metros = estatura / 100;
       let cuadrado_estatura_en_metros = estatura_en_metros * estatura_en_metros;
@@ -4092,7 +4129,7 @@ export default defineComponent({
 
       // this.cualificarImc(this.evaluacion.imc);
     },
-    
+
     formatDateRead(dateValue: Date) {
       let out = moment(dateValue).add(0, "hours");
       return moment(out).format("DD/MM/YYYY");
