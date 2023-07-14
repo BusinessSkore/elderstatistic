@@ -673,7 +673,7 @@
                   >
                     Ver Histórico de Evaluaciones
                   </button>
-                  <!-- <button
+                  <button
                     v-if="this.evaluacion.status == '3'"
                     :disabled="
                       !evaluacion.nombre ||
@@ -690,7 +690,7 @@
                     @click.prevent="revertirEgreso()"
                   >
                     <i class="fas fa-backward"></i> Revertir Egreso
-                  </button> -->
+                  </button>
                 </div>
               </div>
             </div>
