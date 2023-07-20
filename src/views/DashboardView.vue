@@ -146,7 +146,7 @@
         ><i class="fas fa-list"></i> Autorizaciones</a
       >
       <br />
-      <!-- <div id="embeddingContainer"></div> -->
+      <div id="embeddingContainerAgentAutor"></div>
       <!-- <div>
         <label class="ta-l col-form-label col-form-label-sm" for="desde"
           >Fecha:</label
@@ -4433,6 +4433,32 @@ export default {
       }
     },
 
+    async defineurlAgentAutor() {
+      try {
+        const res = await getUrl2("ELDER_CONS_HISTOR_PACI_DASHBOARD_ID");
+        this.capurl = res.data;
+        this.myEmbedVisualAgentAutor();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    myEmbedVisualAgentAutor() {
+      const containerDiv = document.getElementById("embeddingContainerAgentAutor");
+      const options = {
+        url: this.capurl,
+        container: containerDiv,
+        height: "600px",
+      };
+
+      const embeddedDashboardExperience = embedDashboard(options);
+      // let embeddedVisualExperience;
+      // embeddedVisualExperience = QuickSightEmbedding.embedDashboard(options);
+
+      // embeddedVisualExperience.on("error", onerror);
+      embeddedDashboardExperience.on("load", embedVisual);
+    },
+
     myEmbedVisual() {
       const containerDiv = document.getElementById("embeddingContainer");
       const options = {
@@ -4556,6 +4582,9 @@ export default {
     }
     if (this.$store.state.user.type == "Gestor ARS SeNaSa") {
       this.defineurlGtorSenasa();
+    }
+    if (this.$store.state.user.type == "Agente de Autorización") {
+      this.defineurlAgentAutor();
     }
     this.$store.state.user.currentSupervisor = {
       nombre: this.$store.state.user.usuario,
