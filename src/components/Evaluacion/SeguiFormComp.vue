@@ -691,6 +691,24 @@
                   >
                     <i class="fas fa-backward"></i> Revertir Egreso
                   </button>
+                  <!-- <button
+                    v-if="this.evaluacion.status == '1'"
+                    :disabled="
+                      !evaluacion.nombre ||
+                        !evaluacion.apellido ||
+                        !evaluacion.sexo ||
+                        !evaluacion.fechaNacimiento ||
+                        !evaluacion.nss ||
+                        !evaluacion.direccion ||
+                        !evaluacion.telefono ||
+                        !evaluacion.tipo_de_contacto ||
+                        !evaluacion.nombre_contacto
+                    "
+                    class="btn btn-danger"
+                    @click.prevent="egresarPaciente()"
+                  >
+                    <i class="fas fa-forward"></i> Egresar Paciente
+                  </button> -->
                 </div>
               </div>
             </div>
@@ -4114,6 +4132,12 @@ export default defineComponent({
   },
 
   methods: {
+    egresarPaciente() {
+      if (confirm("¿Está Seguro que Egresar Este Paciente en Esta Evaluación?")) {
+        this.evaluacion.status = "3"
+        this.createEvaluacion();
+      }
+    },
     revertirEgreso() {
       if (confirm("¿Está Seguro que Desea Revertir Este Egreso?")) {
         this.evaluacion.status = "1"
