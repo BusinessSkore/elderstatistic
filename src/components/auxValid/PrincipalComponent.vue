@@ -833,6 +833,8 @@ export default {
           nombre: "ROSMERY LIRIANO ",
         },        {
           nombre: "VIVIANA FLAQUER",
+        },        {
+          nombre: "AMAURYS ENRIQUE DOMINGUEZ FRANCO",
         },
       ];
 
@@ -996,6 +998,8 @@ export default {
           nombre: "ROSMERY LIRIANO ",
         },        {
           nombre: "VIVIANA FLAQUER",
+        },        {
+          nombre: "AMAURYS ENRIQUE DOMINGUEZ FRANCO",
         },
       ];
     },
