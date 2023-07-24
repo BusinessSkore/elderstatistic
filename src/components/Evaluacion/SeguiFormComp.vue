@@ -691,7 +691,7 @@
                   >
                     <i class="fas fa-backward"></i> Revertir Egreso
                   </button>
-                  <!-- <button
+                  <button
                     v-if="this.evaluacion.status == '1'"
                     :disabled="
                       !evaluacion.nombre ||
@@ -708,7 +708,7 @@
                     @click.prevent="egresarPaciente()"
                   >
                     <i class="fas fa-forward"></i> Egresar Paciente
-                  </button> -->
+                  </button>
                 </div>
               </div>
             </div>
