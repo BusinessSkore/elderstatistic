@@ -422,6 +422,12 @@
       <h3>
         Dashboard
       </h3>
+      <a
+        class="navbar-option"
+        @click="this.$router.push('/evaluacionsprtscn')"
+        href="#"
+        ><i class="fas fa-list"></i> Jornadas</a
+      >
       <!-- <a
         class="navbar-option"
         @click="this.$router.push('/evaluacionscierre')"
@@ -4444,7 +4450,9 @@ export default {
     },
 
     myEmbedVisualAgentAutor() {
-      const containerDiv = document.getElementById("embeddingContainerAgentAutor");
+      const containerDiv = document.getElementById(
+        "embeddingContainerAgentAutor"
+      );
       const options = {
         url: this.capurl,
         container: containerDiv,
