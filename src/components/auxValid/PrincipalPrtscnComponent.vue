@@ -866,6 +866,8 @@ export default {
           nombre: "VIVIANA FLAQUER",
         },        {
           nombre: "AMAURYS ENRIQUE DOMINGUEZ FRANCO",
+        },{
+          nombre: "VICTOR JESUS LOPEZ PEREZ",
         },
       ];
       this.$store.state.user.filteredSupervisores = [
@@ -1041,6 +1043,8 @@ export default {
           nombre: "VIVIANA FLAQUER",
         },        {
           nombre: "AMAURYS ENRIQUE DOMINGUEZ FRANCO",
+        },{
+          nombre: "VICTOR JESUS LOPEZ PEREZ",
         },
       ];
     },

@@ -835,6 +835,8 @@ export default {
           nombre: "VIVIANA FLAQUER",
         },        {
           nombre: "AMAURYS ENRIQUE DOMINGUEZ FRANCO",
+        },{
+          nombre: "VICTOR JESUS LOPEZ PEREZ",
         },
       ];
 
@@ -1000,6 +1002,8 @@ export default {
           nombre: "VIVIANA FLAQUER",
         },        {
           nombre: "AMAURYS ENRIQUE DOMINGUEZ FRANCO",
+        },{
+          nombre: "VICTOR JESUS LOPEZ PEREZ",
         },
       ];
     },

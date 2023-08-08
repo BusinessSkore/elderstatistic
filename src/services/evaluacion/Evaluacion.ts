@@ -2,6 +2,9 @@ import { Evaluacion } from "@/interfaces/Evaluacion";
 import { AxiosResponse } from "axios";
 import axios from "./axios";
 
+export const createPatient = async (evaluacion: Evaluacion): Promise<AxiosResponse> =>
+  await axios.put("/create?patient=true", evaluacion);
+
 export const create = async (evaluacion: Evaluacion): Promise<AxiosResponse> =>
   await axios.put("/create", evaluacion);
 

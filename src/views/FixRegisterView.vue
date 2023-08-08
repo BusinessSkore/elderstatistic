@@ -1,6 +1,6 @@
 <template>
   <!-- {{ this.evaluacion }} -->
-  
+
   <div v-if="cargando" class="spin">
     <img
       class="img"
@@ -89,6 +89,22 @@
     Iterate Run Data Fixer Egresos Kit1
   </button>
   {{ this.resultadoFinal }}
+
+  <!-- QUINTO CORRECTOR DE REGISTROS  -->
+  <br />
+  <br />
+  {{ this.statusProcesoCargarUltEval }} <br />
+  No Encontrados: {{ this.noEncontradosCargarUltEval.length }} <br />
+  {{ this.noEncontradosCargarUltEval }} <br />
+  
+  <button
+    :disabled="cargando"
+    @click="iterateRunFixedCargarUltEval()"
+    class="btn btn-secondary btn-sm"
+    type="button"
+  >
+    Iterate Run Data Fixer Cargar Ultima Evaluación
+  </button>
 </template>
 
 <script lang="ts">
@@ -98,12 +114,14 @@ import { getPatient } from "@/services/elderstatistic/UsuarioService";
 import {
   getOne,
   create,
+  createPatient,
   getOneEncontrarNuevos,
 } from "@/services/evaluacion/Evaluacion";
-import cedulaData from "./cedulas.json";
-import pacienteData from "./pacientesNuevos.json";
-import pacientesEgresarKit1Data from "./PacientesEgresarkit1.json";
-import evaluacionesData from "./evaluaciones.json";
+import pacientesUltEval from "./data/pacientesUltEval.json";
+import cedulaData from "./data/cedulas.json";
+import pacienteData from "./data/pacientesNuevos.json";
+import pacientesEgresarKit1Data from "./data/PacientesEgresarkit1.json";
+import evaluacionesData from "./data/evaluaciones.json";
 
 export default {
   name: "DashboardView",
@@ -112,6 +130,7 @@ export default {
   data() {
     return {
       count: { news: 0, olds: 0, total: 0 },
+      pacientesUltEvalData: pacientesUltEval,
       cedulas: cedulaData,
       pacientes: pacienteData,
       pacientesEgresarKit1: pacientesEgresarKit1Data,
@@ -120,17 +139,29 @@ export default {
       statusProcesoEncontrarNuevos: "No Comenzado",
       statusProcesoCorregirNuevos: "No Comenzado",
       statusProcesoEgresosKit1: "No Comenzado",
+      statusProcesoCargarUltEval: "No Comenzado",
+      detenido: "1210|001-0067977-8",
       evaluacion: {} as any,
       resultadoFinal: [] as any,
+      noEncontradosCargarUltEval: [] as any,
       cargando: false,
       cedula: false,
     };
   },
 
   methods: {
+    async iterateRunFixedCargarUltEval() {
+      for (var i = 0; i < this.pacientesUltEvalData.length; i++) {
+        await this.runFixerCargarUltEval(this.pacientesUltEvalData[i].cedula);
+        this.statusProcesoCargarUltEval = `Completado ${i + 1} de ${
+          this.pacientesUltEvalData.length
+        }`;
+      }
+    },
+
     async iterateRunFixedEgresosKit1() {
       for (var i = 0; i < this.pacientesEgresarKit1.length; i++) {
-      // for (var i = 0; i < 10; i++) {
+        // for (var i = 0; i < 10; i++) {
         await this.runFixerEgresarKit1(this.pacientesEgresarKit1[i].cedula);
         // alert(`Completado ${i + 1} de ${this.evaluaciones.length}`);
         this.statusProcesoEgresosKit1 = `Completado ${i + 1} de ${
@@ -175,6 +206,11 @@ export default {
       }
     },
 
+    async runFixerCargarUltEval(cedula: string) {
+      // Obtener Evaluaciones del Paciente
+      await this.getPatientEvals(cedula);
+    },
+
     async runFixerEgresarKit1(cedula: string) {
       await this.fetchDataByCedula(cedula);
 
@@ -196,6 +232,7 @@ export default {
       // await this.chageEvaluacion(patientData.data.Items.length - 1);
       // await this.putItem();
     },
+
     async runFixerCorregirNuevos(cedula: string, fecha: string) {
       await this.fetchData(cedula, fecha);
 
@@ -228,6 +265,26 @@ export default {
       // await this.deleteKey();
       await this.chageStatus();
       await this.putItem();
+    },
+
+    async putItemPatient() {
+      if (this.evaluacion) {
+        // await this.toggleLoading();
+        try {
+          const res = await createPatient(this.evaluacion).then(
+            async (res) => {
+              // alert(JSON.stringify(res.data));
+              this.evaluacion = {};
+            },
+            (err) => {
+              alert(err);
+            }
+          );
+        } catch (error) {
+          alert(error);
+        }
+      }
+      // await this.toggleLoading();
     },
 
     async putItem() {
@@ -298,20 +355,35 @@ export default {
       // this.toggleLoading();
     },
 
+    async getPatientEvals(cedula: string) {
+      // this.toggleLoading();
+      try {
+        const res = await getManyByCedula(cedula);
+        // get last evaluacion
+        this.evaluacion = res.data.Items[res.data.Items.length - 1];
+        if (this.evaluacion) {
+          await this.putItemPatient();
+        } else {
+          this.noEncontradosCargarUltEval.push(cedula);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+      // this.toggleLoading();
+    },
+
     async fetchDataByCedula(cedula: string) {
       // this.toggleLoading();
       try {
         const res = await getManyByCedula(cedula);
         // get last evaluacion
         this.evaluacion = res.data.Items[res.data.Items.length - 1];
-        this.resultadoFinal.push(
-          { 
-            fecha: this.evaluacion.fecha,
-            cedula: this.evaluacion.cedula,
-            cantidadEvaluaciones: this.evaluacion.cantidadEvaluaciones,
-            status: this.evaluacion.status,
-          }
-        );
+        this.resultadoFinal.push({
+          fecha: this.evaluacion.fecha,
+          cedula: this.evaluacion.cedula,
+          cantidadEvaluaciones: this.evaluacion.cantidadEvaluaciones,
+          status: this.evaluacion.status,
+        });
       } catch (error) {
         console.error(error);
       }
