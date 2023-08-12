@@ -164,10 +164,14 @@
           class="inputList"
         >
           <option>-</option>
-          <option>FALLECIDO</option>
-          <option>CAMBIO DE REGIMEN</option>
-          <option>MUDANZA</option>
+          <option>INFORMADO</option>
+          <option>NO CONTESTA</option>
+          <option>NÚMERO EQUIVOCADO</option>
+          <option>NÚMERO FUERA DE SERVICIO O APAGADO</option>
+          <option>CAMBIO DE RÉGIMEN</option>
+          <option>MUDANZA O CAMBIO DE CPN</option>
           <option>ENCAMADO</option>
+          <option>FALLECIDO</option>
         </select>
 
         <!-- <select
