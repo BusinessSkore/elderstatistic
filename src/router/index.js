@@ -78,6 +78,7 @@ import OpenEvaluacionComponent from "../components/Evaluacion/OpenFormComp.vue";
 import EvaluacionComponent from "../components/Evaluacion/PrincipalComponent.vue";
 import EvaluacionFactsComponent from "../components/Evaluacion/PrincipalFactsComponent.vue";
 import EvaluacionPrtscnComponent from "../components/Evaluacion/PrincipalPrtscnComponent.vue";
+import PacientesConvocComponent from "../components/Paciente/PrincipalPacConvComponent.vue";
 import EvaluacionCierreComponent from "../components/Evaluacion/PrincipalCierreComponent.vue";
 import EvaluacionDetailComponent from "../components/Evaluacion/FormComp.vue";
 import EvaluacionPrintComponent from "../components/Evaluacion/PrintComponent.vue";
@@ -316,6 +317,16 @@ const routes = [
             "Auxiliar de Convocatoria",
             "Auditora Interna",
             "Encargada de Facturación",
+          ],
+        },
+      },
+      {
+        path: "/pacientesconvoc",
+        name: "pacientesconvoc",
+        component: PacientesConvocComponent,
+        meta: {
+          roles: [
+            "Auxiliar de Convocatoria"
           ],
         },
       },
