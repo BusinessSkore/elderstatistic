@@ -73,11 +73,16 @@
     <th>
       KIT
     </th>
+    <th>
+      ENCAMADO
+    </th>
+    <th>SUPERVISOR</th>
     <th>LLAMAR</th>
     <th>INACTIVAR</th>
     <th>COMENTARIO</th>
+    <th>FECHA</th>
     <!-- <th>AFILIACION</th> -->
-    <th
+    <!-- <th
       v-show="
         this.$store.state.user.type == 'Supervisor en Sitio' ||
           this.$store.state.user.type == 'Supervisor General' ||
@@ -87,8 +92,8 @@
       "
     >
       ESCANEADO
-    </th>
-    <th
+    </th> -->
+    <!-- <th
       v-show="
         this.$store.state.user.type == 'Supervisor en Sitio' ||
           this.$store.state.user.type == 'Supervisor General' ||
@@ -98,7 +103,7 @@
       "
     >
       VERIFICADO
-    </th>
+    </th> -->
     <tr v-for="(evaluacion, index) in evaluacions" :key="index">
       <td v-show="this.$store.state.user.orden == 'ASCENDENTE'">
         {{ index + 1 }}
@@ -125,6 +130,12 @@
       <!-- <td>{{ evaluacion.nombre_contacto }}</td> -->
       <td>
         {{ evaluacion.kit }}
+      </td>
+      <td>
+        {{ evaluacion.Encamado }}
+      </td>
+      <td>
+        {{ evaluacion.supervisor }}
       </td>
       <!-- <td>{{ evaluacion.status }}</td> -->
 
@@ -185,6 +196,7 @@
         <option/>
         <select/> -->
       </td>
+      <td>{{ this.formatDate(evaluacion.fechaComent) }}</td>
       <!-- <td
         @click="handleConvocar(evaluacion.cedula)"
         :class="hasDxColorInverse(evaluacion.convocar)"
@@ -192,7 +204,7 @@
       >
         <i :class="hasDxIconInverse(evaluacion.convocar)"></i>
       </td> -->
-      <td
+      <!-- <td
         v-show="
           this.$store.state.user.type == 'Supervisor en Sitio' ||
             this.$store.state.user.type == 'Supervisor General' ||
@@ -204,8 +216,8 @@
         :class="hasDxColor(evaluacion.evaluacion)"
       >
         <i :class="hasDxIcon(evaluacion.evaluacion)"></i>
-      </td>
-      <td
+      </td> -->
+      <!-- <td
         v-show="
           this.$store.state.user.type == 'Supervisor en Sitio' ||
             this.$store.state.user.type == 'Supervisor General' ||
@@ -217,7 +229,7 @@
         :class="hasDxColor(evaluacion.verificacion)"
       >
         <i :class="hasDxIcon(evaluacion.verificacion)"></i>
-      </td>
+      </td> -->
     </tr>
   </table>
 
@@ -250,7 +262,8 @@ export default {
   methods: {
     async handleBlur(cedula: any, attribute: any, value: any) {
       try {
-        const res = await updateConvocatoria(cedula, attribute, value).then(
+        const res = await updateConvocatoria(cedula, attribute, value)
+          .then
           /* async (res) => {
             if (res.data.Status == "Success") {
               alert("Convocatoria Actualizada Exitosamente");
@@ -259,7 +272,7 @@ export default {
           (err) => {
             alert(err);
           } */
-        );
+          ();
       } catch (error) {
         console.error(error);
       }
@@ -278,6 +291,17 @@ export default {
           this.handleBlur(evaluacion.cedula, origen, evaluacion.inacConvoc);
         }
       } else {
+        // Obtener la fecha actual
+        const currentDate = new Date();
+
+        // Restar 4 horas en milisegundos (1 hora = 3600000 milisegundos)
+        const fourHoursAgo = new Date(currentDate.getTime() - 4 * 3600000);
+
+        // Convertir la fecha en una cadena en formato "yyyy-mm-dd"
+        const dateString = fourHoursAgo.toISOString().split("T")[0];
+
+        evaluacion.fechaComent = dateString;
+
         this.handleBlur(evaluacion.cedula, origen, evaluacion.comentarioConvoc);
       }
     },
@@ -533,8 +557,10 @@ export default {
     },
 
     formatDate(dateValue: Date) {
-      let out = moment(dateValue).add(4, "h");
-      return moment(out).format("D/MM/yyyy");
+      if (dateValue) {
+        let out = moment(dateValue).add(4, "h");
+        return moment(out).format("D/MM/yyyy");
+      }
     },
 
     formatDateNumber(dateValue: Date) {

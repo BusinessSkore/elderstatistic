@@ -351,6 +351,12 @@
         href="#"
         ><i class="fas fa-list"></i> Jornadas</a
       >
+      <a
+        class="navbar-option"
+        @click="this.$router.push('/pacientesconvoc')"
+        href="#"
+        ><i class="fas fa-phone"></i> Convocatoria</a
+      >
       <br />
       <div id="embeddingContainerGteOper"></div>
       <br />
@@ -410,6 +416,12 @@
         @click="this.$router.push('/evaluacionsprtscn')"
         href="#"
         ><i class="fas fa-list"></i> Jornadas</a
+      >
+      <a
+        class="navbar-option"
+        @click="this.$router.push('/pacientesconvoc')"
+        href="#"
+        ><i class="fas fa-phone"></i> Convocatoria</a
       >
       <br />
       <br />
