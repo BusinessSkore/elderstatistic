@@ -753,6 +753,12 @@ export default {
           nombre: "AMAURYS ENRIQUE DOMINGUEZ FRANCO",
         },{
           nombre: "VICTOR JESUS LOPEZ PEREZ",
+        },{
+          nombre: "PERLA MASSIEL MELO ESPINOSA",
+        },{
+          nombre: "MIRIAN GUTIERREZ",
+        },{
+          nombre: "ROSIBEL CESARINA MUNOZ ESPINAL",
         },
       ];
       this.$store.state.user.filteredSupervisores = [
@@ -925,6 +931,12 @@ export default {
           nombre: "AMAURYS ENRIQUE DOMINGUEZ FRANCO",
         },{
           nombre: "VICTOR JESUS LOPEZ PEREZ",
+        },{
+          nombre: "PERLA MASSIEL MELO ESPINOSA",
+        },{
+          nombre: "MIRIAN GUTIERREZ",
+        },{
+          nombre: "ROSIBEL CESARINA MUNOZ ESPINAL",
         },
       ];
     },

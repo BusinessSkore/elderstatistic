@@ -837,6 +837,12 @@ export default {
           nombre: "AMAURYS ENRIQUE DOMINGUEZ FRANCO",
         },{
           nombre: "VICTOR JESUS LOPEZ PEREZ",
+        },{
+          nombre: "PERLA MASSIEL MELO ESPINOSA",
+        },{
+          nombre: "MIRIAN GUTIERREZ",
+        },{
+          nombre: "ROSIBEL CESARINA MUNOZ ESPINAL",
         },
       ];
 
@@ -1004,6 +1010,12 @@ export default {
           nombre: "AMAURYS ENRIQUE DOMINGUEZ FRANCO",
         },{
           nombre: "VICTOR JESUS LOPEZ PEREZ",
+        },{
+          nombre: "PERLA MASSIEL MELO ESPINOSA",
+        },{
+          nombre: "MIRIAN GUTIERREZ",
+        },{
+          nombre: "ROSIBEL CESARINA MUNOZ ESPINAL",
         },
       ];
     },
