@@ -326,7 +326,9 @@ const routes = [
         component: PacientesConvocComponent,
         meta: {
           roles: [
-            "Auxiliar de Convocatoria"
+            "Auxiliar de Convocatoria",
+            "Gerente de Operaciones",
+            "Coordinador de Operaciones"
           ],
         },
       },
