@@ -350,27 +350,27 @@ export default defineComponent({
         },
         {
           municipio: "MOCA",
-          provincia: "ESPALLIAT",
+          provincia: "ESPAILLAT",
           region: "REGION B (II)",
         },
         {
           municipio: "CAYETANO GERMOSEN ",
-          provincia: "ESPALLIAT",
+          provincia: "ESPAILLAT",
           region: "REGION B (II)",
         },
         {
           municipio: "GASPAR HERNANDEZ",
-          provincia: "ESPALLIAT",
+          provincia: "ESPAILLAT",
           region: "REGION B (II)",
         },
         {
           municipio: "JAMAO AL NORTE ",
-          provincia: "ESPALLIAT",
+          provincia: "ESPAILLAT",
           region: "REGION B (II)",
         },
         {
           municipio: "SAN VICTOR",
-          provincia: "ESPALLIAT",
+          provincia: "ESPAILLAT",
           region: "REGION B (II)",
         },
         {
@@ -1137,27 +1137,27 @@ export default defineComponent({
         },
         {
           municipio: "MOCA",
-          provincia: "ESPALLIAT",
+          provincia: "ESPAILLAT",
           region: "REGION B (II)",
         },
         {
           municipio: "CAYETANO GERMOSEN ",
-          provincia: "ESPALLIAT",
+          provincia: "ESPAILLAT",
           region: "REGION B (II)",
         },
         {
           municipio: "GASPAR HERNANDEZ",
-          provincia: "ESPALLIAT",
+          provincia: "ESPAILLAT",
           region: "REGION B (II)",
         },
         {
           municipio: "JAMAO AL NORTE ",
-          provincia: "ESPALLIAT",
+          provincia: "ESPAILLAT",
           region: "REGION B (II)",
         },
         {
           municipio: "SAN VICTOR",
-          provincia: "ESPALLIAT",
+          provincia: "ESPAILLAT",
           region: "REGION B (II)",
         },
         {

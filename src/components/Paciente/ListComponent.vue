@@ -81,6 +81,7 @@
     <th>INACTIVAR</th>
     <th>COMENTARIO</th>
     <th>FECHA</th>
+    <th>UNAP</th>
     <!-- <th>AFILIACION</th> -->
     <!-- <th
       v-show="
@@ -137,6 +138,7 @@
       <td>
         {{ evaluacion.supervisor }}
       </td>
+
       <!-- <td>{{ evaluacion.status }}</td> -->
 
       <!-- <td>{{ this.statusFixedDesc(this.statusFixed(evaluacion.status)) }}</td> -->
@@ -197,6 +199,9 @@
         <select/> -->
       </td>
       <td>{{ this.formatDate(evaluacion.fechaComent) }}</td>
+      <td>
+        {{ evaluacion.unap }}
+      </td>
       <!-- <td
         @click="handleConvocar(evaluacion.cedula)"
         :class="hasDxColorInverse(evaluacion.convocar)"

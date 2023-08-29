@@ -446,6 +446,9 @@
         href="#"
         ><i class="fas fa-phone"></i> Convocatoria</a
       >
+      <!-- <a class="navbar-option" @click="this.$router.push('/centros')" href="#"
+        ><i class="far fa-building"></i> Centros</a
+      > -->
       <!-- <a
         class="navbar-option"
         @click="this.$router.push('/evaluacionscierre')"
@@ -1703,7 +1706,7 @@ export default {
         case "900200":
           return "DISTRITO NACIONAL";
         case "900536":
-          return "ESPALLIAT";
+          return "ESPAILLAT";
         case "900287":
           return "BARAHONA";
         case "900188":
@@ -1751,7 +1754,7 @@ export default {
         case "900108":
           return "PERAVIA";
         case "900245":
-          return "ESPALLIAT";
+          return "ESPAILLAT";
         case "900449":
           return "SANCHEZ RAMIREZ";
         case "900072":
@@ -2021,7 +2024,7 @@ export default {
         case "900064":
           return "SANTO DOMINGO ESTE";
         case "900566":
-          return "ESPALLIAT";
+          return "ESPAILLAT";
         case "900181":
           return "SANTO DOMINGO NORTE";
         case "900177":
@@ -2059,7 +2062,7 @@ export default {
         case "900141":
           return "PERAVIA";
         case "900248":
-          return "ESPALLIAT";
+          return "ESPAILLAT";
         case "900405":
           return "DAJABON";
         case "900276":
@@ -2825,7 +2828,7 @@ export default {
         case "900369":
           return "HATO MAYOR";
         case "900253":
-          return "ESPALLIAT";
+          return "ESPAILLAT";
         case "900572":
           return "SANCHEZ RAMIREZ";
         case "900126":
@@ -2853,7 +2856,7 @@ export default {
         case "900584":
           return "SANTIAGO";
         case "900585":
-          return "ESPALLIAT";
+          return "ESPAILLAT";
         case "900586":
           return "PUERTO PLATA";
         case "900590":
