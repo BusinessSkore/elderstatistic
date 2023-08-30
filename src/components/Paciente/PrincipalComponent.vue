@@ -761,6 +761,8 @@ export default {
           nombre: "ROSIBEL CESARINA MUNOZ ESPINAL",
         },{
           nombre: "GUADALUPE GUZMAN HORACIO",
+        },{
+          nombre: "RENATA SERAVALLE",
         },
       ];
       this.$store.state.user.filteredSupervisores = [
@@ -941,6 +943,8 @@ export default {
           nombre: "ROSIBEL CESARINA MUNOZ ESPINAL",
         },{
           nombre: "GUADALUPE GUZMAN HORACIO",
+        },{
+          nombre: "RENATA SERAVALLE",
         },
       ];
     },
