@@ -764,6 +764,8 @@ export default {
           nombre: "MIRIAN GUTIERREZ",
         },{
           nombre: "ROSIBEL CESARINA MUNOZ ESPINAL",
+        },{
+          nombre: "GUADALUPE GUZMAN HORACIO",
         },
       ];
       this.$store.state.user.filteredSupervisores = [
@@ -947,6 +949,8 @@ export default {
           nombre: "MIRIAN GUTIERREZ",
         },{
           nombre: "ROSIBEL CESARINA MUNOZ ESPINAL",
+        },{
+          nombre: "GUADALUPE GUZMAN HORACIO",
         },
       ];
     },

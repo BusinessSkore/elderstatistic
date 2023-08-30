@@ -843,6 +843,8 @@ export default {
           nombre: "MIRIAN GUTIERREZ",
         },{
           nombre: "ROSIBEL CESARINA MUNOZ ESPINAL",
+        },{
+          nombre: "GUADALUPE GUZMAN HORACIO",
         },
       ];
 
@@ -1016,6 +1018,8 @@ export default {
           nombre: "MIRIAN GUTIERREZ",
         },{
           nombre: "ROSIBEL CESARINA MUNOZ ESPINAL",
+        },{
+          nombre: "GUADALUPE GUZMAN HORACIO",
         },
       ];
     },
