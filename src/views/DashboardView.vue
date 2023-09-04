@@ -446,9 +446,9 @@
         href="#"
         ><i class="fas fa-phone"></i> Convocatoria</a
       >
-      <!-- <a class="navbar-option" @click="this.$router.push('/centros')" href="#"
+      <a class="navbar-option" @click="this.$router.push('/centros')" href="#"
         ><i class="far fa-building"></i> Centros</a
-      > -->
+      >
       <!-- <a
         class="navbar-option"
         @click="this.$router.push('/evaluacionscierre')"
