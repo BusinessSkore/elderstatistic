@@ -67,6 +67,8 @@
                     <th>TALLA</th>
                     <th>IMC</th>
                     <th>KIT</th>
+                    <th>COMENTARIO SUPERVISOR EN SITIO</th>
+                    <th>COMENTARIO MEDICO NUTRICIONISTA</th>
                   </tr>
                   <tr
                     v-for="(evaluacion, index) in historicoEvaluaciones"
@@ -79,6 +81,8 @@
                     <td>{{ evaluacion.talla }}</td>
                     <td>{{ this.imc(evaluacion.peso, evaluacion.talla) }}</td>
                     <td>{{ evaluacion.kit }}</td>
+                    <td>{{ evaluacion.comentary }}</td>
+                    <td>{{ evaluacion.comentaryNutri }}</td>
                   </tr>
                 </table>
               </div>
@@ -7080,7 +7084,7 @@ th {
 }
 
 .contenedor7 {
-  width: 500px;
+  width: 750px;
   height: 500px;
   overflow-y: scroll;
   margin: auto;
@@ -7095,7 +7099,7 @@ th {
   background: rgb(82, 45, 109);
   color: #fff;
   position: fixed;
-  width: 500px;
+  width: 750px;
 }
 
 .contenedor7 label {
