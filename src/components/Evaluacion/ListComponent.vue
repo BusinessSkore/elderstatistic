@@ -1,5 +1,52 @@
 <template>
   <!-- <table v-if="this.totales.evaluacions" id="customers"> -->
+
+  <div v-if="showModalSSIRS" class="modalSSIRS">
+    <div class="contenedorSSIRS">
+      <header>
+        Escáner SIRS
+        <a target="_blank" :href="this.$store.state.user.consultasAfiliados"
+          ><i style="color: white" class="fas fa-download"></i
+        ></a>
+      </header>
+      <div class="contenidoSSIRS">
+        <label
+          @click="this.showModalSSIRSMethod()"
+          for="btn-modal"
+          class="close"
+          >Cerrar</label
+        >
+        <div class="contenidoSSIRS">
+          <img
+            class="flyer2"
+            :src="this.$store.state.user.consultasAfiliados"
+          />
+          <!-- </a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div v-if="showModalEVAL" class="modalSSIRS">
+    <div class="contenedorSSIRS">
+      <header>
+        Escáner Evaluación
+        <a target="_blank" :href="this.$store.state.user.evaluacion"
+          ><i style="color: white" class="fas fa-download"></i
+        ></a>
+      </header>
+      <div class="contenidoSSIRS">
+        <label @click="this.showModalEVALMethod()" for="btn-modal" class="close"
+          >Cerrar</label
+        >
+        <div class="contenidoSSIRS">
+          <img class="flyer2" :src="this.$store.state.user.evaluacion" />
+          <!-- </a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <table id="customers">
     <!-- <th>NO.</th> -->
     <!-- <th>NO.</th> -->
@@ -44,22 +91,30 @@
     >
       VERIFICADO
     </th>
-    <tr
-      @click="goToEval(evaluacion)"
-      v-for="(evaluacion, index) in evaluacions"
-      :key="index"
-    >
-      <td v-show="this.$store.state.user.orden == 'ASCENDENTE'">
+    <th>
+      SIRS
+    </th>
+    <th>
+      EVALUACION
+    </th>
+    <tr v-for="(evaluacion, index) in evaluacions" :key="index">
+      <td
+        @click="goToEval(evaluacion)"
+        v-show="this.$store.state.user.orden == 'ASCENDENTE'"
+      >
         {{ index + 1 }}
       </td>
-      <td v-show="this.$store.state.user.orden == 'DESCENDENTE'">
+      <td
+        @click="goToEval(evaluacion)"
+        v-show="this.$store.state.user.orden == 'DESCENDENTE'"
+      >
         {{ evaluacions.length - index }}
       </td>
       <!-- <td>{{ evaluacion.order }}</td> -->
-      <td>{{ evaluacion.cedula }}</td>
-      <td>{{ evaluacion.nombre }}</td>
-      <td>{{ evaluacion.apellido }}</td>
-      <td>{{ evaluacion.edad }}</td>
+      <td @click="goToEval(evaluacion)">{{ evaluacion.cedula }}</td>
+      <td @click="goToEval(evaluacion)">{{ evaluacion.nombre }}</td>
+      <td @click="goToEval(evaluacion)">{{ evaluacion.apellido }}</td>
+      <td @click="goToEval(evaluacion)">{{ evaluacion.edad }}</td>
       <td
         v-show="
           this.$store.state.user.type == 'Supervisor en Sitio' ||
@@ -68,6 +123,7 @@
             this.$store.state.user.type == 'Gerente de Operaciones' ||
             this.$store.state.user.type == 'Auditora Interna'
         "
+        @click="goToEval(evaluacion)"
       >
         {{ evaluacion.kit }}
       </td>
@@ -75,10 +131,14 @@
       <!-- <td :class="hasDxColor(evaluacion.consAfil)">
         <i :class="hasDxIcon(evaluacion.consAfil)"></i>
       </td> -->
-      <td :class="hasDxColor(evaluacion.evaluado)">
+      <td
+        @click="goToEval(evaluacion)"
+        :class="hasDxColor(evaluacion.evaluado)"
+      >
         <i :class="hasDxIcon(evaluacion.evaluado)"></i>
       </td>
       <td
+        @click="goToEval(evaluacion)"
         v-show="
           this.$store.state.user.type == 'Supervisor en Sitio' ||
             this.$store.state.user.type == 'Supervisor General' ||
@@ -92,6 +152,7 @@
         <i :class="hasDxIcon(evaluacion.evaluacion)"></i>
       </td>
       <td
+        @click="goToEval(evaluacion)"
         v-show="
           this.$store.state.user.type == 'Supervisor en Sitio' ||
             this.$store.state.user.type == 'Supervisor General' ||
@@ -103,6 +164,24 @@
         :class="hasDxColor(evaluacion.verificacion)"
       >
         <i :class="hasDxIcon(evaluacion.verificacion)"></i>
+      </td>
+      <td v-show="this.$store.state.user.type == 'Gerente de Operaciones'">
+        <i
+          @click.prevent="
+            this.showModalSSIRSMethod(evaluacion.cedula, evaluacion.fecha)
+          "
+          style="cursor: pointer"
+          class="fas fa-eye"
+        ></i>
+      </td>
+      <td v-show="this.$store.state.user.type == 'Gerente de Operaciones'">
+        <i
+          @click.prevent="
+            this.showModalEVALMethod(evaluacion.cedula, evaluacion.fecha)
+          "
+          style="cursor: pointer"
+          class="fas fa-eye"
+        ></i>
       </td>
     </tr>
   </table>
@@ -122,6 +201,8 @@ export default {
   props: ["evaluacions"],
   data() {
     return {
+      showModalSSIRS: false,
+      showModalEVAL: false,
       fechaActual: "",
       data: false,
       totales: {},
@@ -131,6 +212,20 @@ export default {
     this.fechaActual = new Date();
   },
   methods: {
+    showModalEVALMethod(cedula: any, fecha: any) {
+      let joined = cedula + fecha;
+
+      this.$store.state.user.evaluacion = `https://isys-assets-bucket.s3.amazonaws.com/evaluaciones/${joined}.jpg`;
+      this.showModalEVAL = !this.showModalEVAL;
+    },
+
+    showModalSSIRSMethod(cedula: any, fecha: any) {
+      let joined = cedula + fecha;
+      this.$store.state.user.consultasAfiliados = `https://isys-assets-bucket.s3.amazonaws.com/consultasAfiliados/${joined}.jpg`;
+
+      this.showModalSSIRS = !this.showModalSSIRS;
+    },
+
     goToEval(evaluacion: any) {
       this.$store.state.user.currentEvaluacion = evaluacion;
       if (
@@ -352,6 +447,11 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.flyer2 {
+  width: 100%;
+  /* height: 75%; */
+}
+
 .valor1 {
   /* text-align: center; */
   /* background-color: rgb(255, 0, 0); */
@@ -511,4 +611,50 @@ td,
 th {
   font-size: 75%;
 }
+
+/* Modal Scáner SIRS */
+.modalSSIRS {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: all 500ms ease;
+}
+
+.contenedorSSIRS {
+  width: 700px;
+  height: 90%;
+  margin: auto;
+  background: #fff;
+  box-shadow: 1px 7px 25px rgba(0, 0, 0, 0.5);
+  transition: all 500ms ease;
+  position: relative;
+  overflow-y: scroll;
+}
+
+.contenedorSSIRS header {
+  padding: 10px;
+  background: rgb(82, 45, 109);
+  color: #fff;
+}
+
+.contenedorSSIRS label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.contenidoSSIRS {
+  padding: 7px;
+}
+
+/* End Modal */
 </style>
