@@ -798,6 +798,22 @@ export default defineComponent({
         this.setContactName(patient.nombre_contacto);
         document.getElementById("unap").focus();
       }
+      if(this.evaluacion.cedula == ""){
+        this.evaluacion.cedula = "";
+        this.evaluacion.nombre = "";
+        this.evaluacion.apellido = "";
+        this.evaluacion.sexo = "";
+        this.evaluacion.fechaNacimiento = "";
+        this.evaluacion.nss = "";
+        this.evaluacion.direccion = "";
+        this.evaluacion.telefono = "";
+        this.evaluacion.tipo_de_contacto = "";
+        this.evaluacion.nombre_contacto = "";
+        this.evaluacion.cantidadEvaluaciones = "";
+        this.evaluacion.status = "";
+        this.evaluacion.cantidadEvaluaciones = "";
+        this.evaluacion.edad = "";
+      }
     },
     defTelefono() {
       if (this.evaluacion.telefono.length == 10) {
