@@ -226,6 +226,32 @@
                         v-show="!cargando"
                       />
                     </div>
+                    <div class="mycard-body">
+                      <table v-show="this.evaluacions.length" id="customers">
+                        <th>KIT</th>
+                        <th>CANT.</th>
+                        <tr>
+                          <td>KIT 1</td>
+                          <td class="der">{{ this.cantKit1 }}</td>
+                        </tr>
+                        <tr>
+                          <td>KIT 2A</td>
+                          <td class="der">{{ this.cantKit2a }}</td>
+                        </tr>
+                        <tr>
+                          <td>KIT 2B</td>
+                          <td class="der">{{ this.cantKit2b }}</td>
+                        </tr>
+                        <tr>
+                          <td>KIT 3</td>
+                          <td class="der">{{ this.cantKit3 }}</td>
+                        </tr>
+                        <tr>
+                          <td>TOTAL</td>
+                          <td class="der">{{ this.cantKitTotal }}</td>
+                        </tr>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -260,6 +286,11 @@ export default {
 
   data() {
     return {
+      cantKit1: 0,
+      cantKit2a: 0,
+      cantKit2b: 0,
+      cantKit3: 0,
+      cantKitTotal: 0,
       searchField: "",
       showModalAseguradoras: false,
       filteredCentros: [] as any,
@@ -277,6 +308,47 @@ export default {
   },
 
   methods: {
+    calKits() {
+      let cantKit1;
+      let cantKit2a;
+      let cantKit2b;
+      let cantKit3;
+      let cantKitTotal;
+
+      let list_cantKit1;
+      let list_cantKit2a;
+      let list_cantKit2b;
+      let list_cantKit3;
+
+      list_cantKit1 = this.evaluacions.filter((evaluacion: any) => {
+        return evaluacion.kit == "KIT 1";
+      });
+
+      list_cantKit2a = this.evaluacions.filter((evaluacion: any) => {
+        return evaluacion.kit == "KIT 2A";
+      });
+
+      list_cantKit2b = this.evaluacions.filter((evaluacion: any) => {
+        return evaluacion.kit == "KIT 2B";
+      });
+
+      list_cantKit3 = this.evaluacions.filter((evaluacion: any) => {
+        return evaluacion.kit == "KIT 3";
+      });
+
+      cantKit1 = list_cantKit1.length;
+      cantKit2a = list_cantKit2a.length;
+      cantKit2b = list_cantKit2b.length;
+      cantKit3 = list_cantKit3.length;
+      cantKitTotal = this.evaluacions.length;
+
+      this.cantKit1 = cantKit1;
+      this.cantKit2a = cantKit2a;
+      this.cantKit2b = cantKit2b;
+      this.cantKit3 = cantKit3;
+      this.cantKitTotal = cantKitTotal;
+    },
+
     downloadCSV() {
       const itemsArray = [
         { itemId: 1, itemRef: "Item 001" },
@@ -474,6 +546,7 @@ export default {
 
       this.sortEvaluacions();
 
+      this.calKits();
       this.toggleLoading();
     },
   },
@@ -503,6 +576,11 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+.der {
+  text-align: right;
+}
+
 /* Tabla */
 #customers {
   font-family: Arial, Helvetica, sans-serif;
