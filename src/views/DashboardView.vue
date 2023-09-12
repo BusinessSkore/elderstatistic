@@ -461,6 +461,21 @@
       <br />
       <br />
     </div>
+    <div
+      v-show="!cargando"
+      v-if="this.$store.state.user.type == 'Encargada de Convocatoria'"
+      class="general"
+    >
+      <h3>
+        Dashboard
+      </h3>
+      <a
+        class="navbar-option"
+        @click="this.$router.push('/pacientesconvoc')"
+        href="#"
+        ><i class="fas fa-phone"></i> Convocatoria</a
+      >
+    </div>
   </div>
 </template>
 

@@ -29,7 +29,8 @@ let allRoles = [
   "Agente de Autorización",
   "Gestor ARS SeNaSa",
   "Médico Nutricionista Domiciliario",
-  "Administrador de Datos"
+  "Administrador de Datos",
+  "Encargada de Convocatoria"
 ];
 
 // Centro -------------------------------------------------------------------
@@ -328,7 +329,8 @@ const routes = [
           roles: [
             "Auxiliar de Convocatoria",
             "Gerente de Operaciones",
-            "Coordinador de Operaciones"
+            "Coordinador de Operaciones",
+            "Encargada de Convocatoria"
           ],
         },
       },
