@@ -463,6 +463,7 @@
                   for="abdomen"
                   >ABDOMEN (cm):</label
                 ><input
+                  @change="evaluarRango('abdomen')"
                   id="abdomen"
                   type="Number"
                   v-model="evaluacion.abdomen"
@@ -516,6 +517,7 @@
                   for="presion_arterial_sistolica"
                   >P.A. SISTOLICA (mmHg):</label
                 ><input
+                  @change="evaluarRango('presion_arterial_sistolica')"
                   id="presion_arterial_sistolica"
                   type="Number"
                   v-model="evaluacion.presion_arterial_sistolica"
@@ -528,6 +530,7 @@
                   for="presion_arterial_diatolica"
                   >P.A. DIASTOLICA (mmHg):</label
                 ><input
+                  @change="evaluarRango('presion_arterial_diatolica')"
                   id="presion_arterial_diatolica"
                   type="Number"
                   v-model="evaluacion.presion_arterial_diatolica"
@@ -5353,6 +5356,107 @@ export default defineComponent({
   },
 
   methods: {
+    // Al cambiar el valor de una variable, evaluar rango
+    evaluarRango(variable: string) {
+      // si la variable está fuera de rango, no permitir
+      if (this.isAoutOfRange(variable)) {
+        this.noPermitirValor(variable);
+      }
+    },
+
+    noPermitirValor(variable: string) {
+      alert("Verificar Valor de la Variable");
+      this.evaluacion[variable] = "";
+    },
+
+    getVariableLimits(variable: string) {
+      let variableLimits = {
+        maxVal: 0,
+        minVal: 0,
+      };
+
+      switch (variable) {
+        case "abdomen":
+          variableLimits.minVal = 30;
+          variableLimits.maxVal = 206;
+          break;
+        case "altura_rodilla":
+          variableLimits.minVal = 14;
+          variableLimits.maxVal = 72;
+          break;
+        case "cadera":
+          variableLimits.minVal = 30;
+          variableLimits.maxVal = 206;
+          break;
+        case "cintura":
+          variableLimits.minVal = 30;
+          variableLimits.maxVal = 206;
+          break;
+        case "flexibilidad_miembro_inferior":
+          variableLimits.minVal = -61;
+          variableLimits.maxVal = -21;
+          break;
+        case "flexibilidad_miembro_superior":
+          variableLimits.minVal = -61;
+          variableLimits.maxVal = -21;
+          break;
+        case "frecuencia_cardiaca":
+          variableLimits.minVal = 40;
+          variableLimits.maxVal = 180;
+          break;
+        case "fuerza":
+          variableLimits.minVal = 0;
+          variableLimits.maxVal = 80;
+          break;
+        case "peso":
+          variableLimits.minVal = 40;
+          variableLimits.maxVal = 150;
+          break;
+        case "pliegue_abdominal":
+          variableLimits.minVal = 1;
+          variableLimits.maxVal = 80;
+          break;
+        case "pliegue_bicep":
+          variableLimits.minVal = 1;
+          variableLimits.maxVal = 80;
+          break;
+        case "pliegue_sub":
+          variableLimits.minVal = 1;
+          variableLimits.maxVal = 80;
+          break;
+        case "presion_arterial_diatolica":
+          variableLimits.minVal = 40;
+          variableLimits.maxVal = 150;
+          break;
+        case "presion_arterial_sistolica":
+          variableLimits.minVal = 60;
+          variableLimits.maxVal = 250;
+          break;
+      }
+
+      return variableLimits;
+    },
+
+    isAoutOfRange(variable: string) {
+      let isAoutOfRange = false;
+
+      let valorVariable = this.evaluacion[variable];
+
+      // Obtener Valores límites de cada Variable
+      let variableLimits = this.getVariableLimits(variable);
+
+      // En caso de que el valor de la variable sea mayor al valor máximo de los limites de la variable,
+      //  en el caso de que el valor de la variable sea menor al valor minimo de los limites de la variable
+      // entonces el valor de la variable esta fuera de rango
+      switch (true) {
+        case valorVariable > variableLimits.maxVal:
+        case valorVariable < variableLimits.minVal:
+          isAoutOfRange = true;
+      }
+
+      return isAoutOfRange;
+    },
+
     goToEval(evaluacion: any) {
       this.$store.state.user.currentEvaluacion = evaluacion;
       this.$router.push(`/evaluacions_details`);
@@ -5432,6 +5536,8 @@ export default defineComponent({
     },
 
     calcCintCader(cintura: number, cadera: number) {
+      this.evaluarRango("altura_rodilla");
+      this.evaluarRango("cadera");
       this.calcTalla(
         this.evaluacion.altura_rodilla,
         this.evaluacion.sexo,
@@ -5718,12 +5824,15 @@ export default defineComponent({
     // },
 
     fixFlexibilidad_miembro_inferior() {
+      this.evaluarRango("flexibilidad_miembro_inferior");
+
       if (this.evaluacion.flexibilidad_miembro_inferior > 0) {
         this.evaluacion.flexibilidad_miembro_inferior =
           this.evaluacion.flexibilidad_miembro_inferior * -1;
       }
     },
     fixFlexibilidad_miembro_superior() {
+      this.evaluarRango("flexibilidad_miembro_superior");
       if (this.evaluacion.flexibilidad_miembro_superior > 0) {
         this.evaluacion.flexibilidad_miembro_superior =
           this.evaluacion.flexibilidad_miembro_superior * -1;
@@ -5761,6 +5870,7 @@ export default defineComponent({
     },
 
     calcularImc(peso: number, estatura: number) {
+      this.evaluarRango("peso");
       let estatura_en_metros = estatura / 100;
       let cuadrado_estatura_en_metros = estatura_en_metros * estatura_en_metros;
       let imc = peso / cuadrado_estatura_en_metros;
@@ -5776,6 +5886,11 @@ export default defineComponent({
       pSubesc: number,
       talla: number
     ) {
+      this.evaluarRango("cintura");
+      this.evaluarRango("pliegue_abdominal");
+      this.evaluarRango("pliegue_bicep");
+      this.evaluarRango("pliegue_sub");
+
       let pctoGrasa;
 
       let productocintura = 0.24 * cintura;
@@ -5798,6 +5913,8 @@ export default defineComponent({
     },
 
     cualificarFuerza(fuerza: number, sexo: string) {
+      this.evaluarRango("fuerza");
+
       let cualificacionFuerza;
       if (sexo == "MASCULINO") {
         if (fuerza >= 0.0 && fuerza < 21.4) {
@@ -5828,6 +5945,8 @@ export default defineComponent({
     },
 
     cualificarFC(frecuencia_cardiaca: number) {
+      this.evaluarRango("frecuencia_cardiaca");
+
       let estadofc;
       if (frecuencia_cardiaca >= 0 && frecuencia_cardiaca < 60) {
         estadofc = "1-BAJA";
@@ -5843,6 +5962,8 @@ export default defineComponent({
     },
 
     calcTalla(alturaRodilla: number, sexo: string, edad: number) {
+      this.evaluarRango('altura_rodilla')
+
       let talla;
       let productoAlturaRodilla;
       let productoEdad;
