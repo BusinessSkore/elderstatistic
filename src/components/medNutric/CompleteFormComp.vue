@@ -5394,11 +5394,11 @@ export default defineComponent({
           break;
         case "flexibilidad_miembro_inferior":
           variableLimits.minVal = -61;
-          variableLimits.maxVal = -21;
+          variableLimits.maxVal = 0;
           break;
         case "flexibilidad_miembro_superior":
           variableLimits.minVal = -61;
-          variableLimits.maxVal = -21;
+          variableLimits.maxVal = 0;
           break;
         case "frecuencia_cardiaca":
           variableLimits.minVal = 40;
