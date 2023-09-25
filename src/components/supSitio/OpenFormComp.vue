@@ -75,6 +75,7 @@
                       <th>NOMBRE</th>
                       <th>REGION</th>
                       <th>PROVINCIA</th>
+                      <th>MUNICIPIO</th>
                     </tr>
                     <tr
                       v-for="(centro, index) in this.$store.state.user
@@ -85,6 +86,7 @@
                       <td>{{ centro.unap }}</td>
                       <td>{{ centro.region }}</td>
                       <td>{{ centro.provincia }}</td>
+                      <td>{{ centro.municipio }}</td>
                     </tr>
                   </table>
                 </div>
@@ -2051,8 +2053,8 @@ th {
 }
 
 .contenedor7 {
-  width: 350px;
-  height: 350px;
+  width: 450px;
+  height: 450px;
   overflow-y: scroll;
   margin: auto;
   background: #fff;
@@ -2066,7 +2068,7 @@ th {
   background: rgb(82, 45, 109);
   color: #fff;
   position: fixed;
-  width: 350px;
+  width: 450px;
 }
 
 .contenedor7 label {
