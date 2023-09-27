@@ -5409,8 +5409,8 @@ export default defineComponent({
           variableLimits.maxVal = 80;
           break;
         case "peso":
-          variableLimits.minVal = 40;
-          variableLimits.maxVal = 150;
+          variableLimits.minVal = 30;
+          variableLimits.maxVal = 200;
           break;
         case "pliegue_abdominal":
           variableLimits.minVal = 1;
