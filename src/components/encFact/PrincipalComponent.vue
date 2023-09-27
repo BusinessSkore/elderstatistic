@@ -853,6 +853,14 @@ export default {
           nombre: "GUADALUPE GUZMAN HORACIO",
         },{
           nombre: "RENATA SERAVALLE",
+        },{
+          nombre: "LORENA SAINTHILAIRE",
+        },{
+          nombre: "ISMAEL DIAZ",
+        },{
+          nombre: "MELVIN BATISTA",
+        },{
+          nombre: "WIENFIELD CALCAÑO",
         },
       ];
       this.$store.state.user.filteredSupervisores = [
@@ -1035,6 +1043,14 @@ export default {
           nombre: "GUADALUPE GUZMAN HORACIO",
         },{
           nombre: "RENATA SERAVALLE",
+        },{
+          nombre: "LORENA SAINTHILAIRE",
+        },{
+          nombre: "ISMAEL DIAZ",
+        },{
+          nombre: "MELVIN BATISTA",
+        },{
+          nombre: "WIENFIELD CALCAÑO",
         },
       ];
     },

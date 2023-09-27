@@ -847,6 +847,14 @@ export default {
           nombre: "GUADALUPE GUZMAN HORACIO",
         },{
           nombre: "RENATA SERAVALLE",
+        },{
+          nombre: "LORENA SAINTHILAIRE",
+        },{
+          nombre: "ISMAEL DIAZ",
+        },{
+          nombre: "MELVIN BATISTA",
+        },{
+          nombre: "WIENFIELD CALCAÑO",
         },
       ];
 
@@ -1024,6 +1032,14 @@ export default {
           nombre: "GUADALUPE GUZMAN HORACIO",
         },{
           nombre: "RENATA SERAVALLE",
+        },{
+          nombre: "LORENA SAINTHILAIRE",
+        },{
+          nombre: "ISMAEL DIAZ",
+        },{
+          nombre: "MELVIN BATISTA",
+        },{
+          nombre: "WIENFIELD CALCAÑO",
         },
       ];
     },
