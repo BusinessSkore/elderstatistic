@@ -855,6 +855,8 @@ export default {
           nombre: "MELVIN BATISTA",
         },{
           nombre: "WIENFIELD CALCAÑO",
+        },{
+          nombre: "ANA ROSANNA DE LA CRUZ",
         },
       ];
 
@@ -1040,6 +1042,8 @@ export default {
           nombre: "MELVIN BATISTA",
         },{
           nombre: "WIENFIELD CALCAÑO",
+        },{
+          nombre: "ANA ROSANNA DE LA CRUZ",
         },
       ];
     },

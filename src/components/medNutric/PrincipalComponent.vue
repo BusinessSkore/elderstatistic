@@ -771,6 +771,8 @@ export default {
           nombre: "MELVIN BATISTA",
         },{
           nombre: "WIENFIELD CALCAÑO",
+        },{
+          nombre: "ANA ROSANNA DE LA CRUZ",
         },
       ];
       this.$store.state.user.filteredSupervisores = [
@@ -961,6 +963,8 @@ export default {
           nombre: "MELVIN BATISTA",
         },{
           nombre: "WIENFIELD CALCAÑO",
+        },{
+          nombre: "ANA ROSANNA DE LA CRUZ",
         },
       ];
     },
