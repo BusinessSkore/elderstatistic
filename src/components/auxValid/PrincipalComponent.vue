@@ -856,7 +856,7 @@ export default {
         },{
           nombre: "WIENFIELD CALCAÑO",
         },{
-          nombre: "ANA ROSANNA DE LA CRUZ",
+          nombre: "ADAN LUIS DE LA CRUZ TEJEDA",
         },
       ];
 
@@ -1043,7 +1043,7 @@ export default {
         },{
           nombre: "WIENFIELD CALCAÑO",
         },{
-          nombre: "ANA ROSANNA DE LA CRUZ",
+          nombre: "ADAN LUIS DE LA CRUZ TEJEDA",
         },
       ];
     },

@@ -887,7 +887,7 @@ export default {
         },{
           nombre: "WIENFIELD CALCAÑO",
         },{
-          nombre: "ANA ROSANNA DE LA CRUZ",
+          nombre: "ADAN LUIS DE LA CRUZ TEJEDA",
         },
       ];
       this.$store.state.user.filteredSupervisores = [
@@ -1084,7 +1084,7 @@ export default {
         },{
           nombre: "WIENFIELD CALCAÑO",
         },{
-          nombre: "ANA ROSANNA DE LA CRUZ",
+          nombre: "ADAN LUIS DE LA CRUZ TEJEDA",
         },
       ];
     },
