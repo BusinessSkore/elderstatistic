@@ -800,7 +800,7 @@ export default defineComponent({
         this.setContactName(patient.nombre_contacto);
         document.getElementById("unap").focus();
       }
-      if(this.evaluacion.cedula == ""){
+      if (this.evaluacion.cedula == "") {
         this.evaluacion.cedula = "";
         this.evaluacion.nombre = "";
         this.evaluacion.apellido = "";
@@ -1316,9 +1316,9 @@ export default defineComponent({
       this.toggleLoading();
       this.estadoLoading = "Cargando...";
       this.cantEvalPac = res.data.Count;
-      if (this.cantEvalPac == 9) {
+      if (this.cantEvalPac == 900) {
         alert("Este Paciente ya Cuenta con 9 Evaluaciones. Está dado de Alta.");
-      } else if (this.cantEvalPac == 8) {
+      } else if (this.cantEvalPac == 800) {
         alert(
           "Esta es la Evaluación para el Alta del Paciente, Asegúrece de Verificar el Kit de Alta"
         );
