@@ -163,7 +163,7 @@ export default defineComponent({
 
   data() {
     return {
-      systemVersion: "V 6.4.1",
+      systemVersion: "V 6.4.2",
       systemName: "elderstatistic",
       desplegar: "fas fa-caret-down",
       showMenu: false,
