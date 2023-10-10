@@ -857,6 +857,12 @@ export default {
           nombre: "WIENFIELD CALCAÑO",
         },{
           nombre: "ADAN LUIS DE LA CRUZ TEJEDA",
+        },{
+          nombre: "DR. LEÓN HERIBERTO JON BREA",
+        },{
+          nombre: "LEANDRO RAMON GUERRERO AVILA ",
+        },{
+          nombre: "EMELY MABEL MATOS PEÑA ",
         },
       ];
 
@@ -1044,6 +1050,12 @@ export default {
           nombre: "WIENFIELD CALCAÑO",
         },{
           nombre: "ADAN LUIS DE LA CRUZ TEJEDA",
+        },{
+          nombre: "DR. LEÓN HERIBERTO JON BREA",
+        },{
+          nombre: "LEANDRO RAMON GUERRERO AVILA ",
+        },{
+          nombre: "EMELY MABEL MATOS PEÑA ",
         },
       ];
     },
