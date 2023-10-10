@@ -330,7 +330,8 @@ const routes = [
             "Auxiliar de Convocatoria",
             "Gerente de Operaciones",
             "Coordinador de Operaciones",
-            "Encargada de Convocatoria"
+            "Encargada de Convocatoria",
+            "Supervisor en Sitio"
           ],
         },
       },

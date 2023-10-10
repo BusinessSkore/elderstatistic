@@ -38,6 +38,12 @@
         ><i class="fas fa-list"></i> Jornadas</a
       >
 
+      <a
+        class="navbar-option"
+        @click="this.$router.push('/pacientesconvoc')"
+        href="#"
+        ><i class="fas fa-phone"></i> Convocatoria</a
+      >
       <!-- <button
         @click="this.$router.push('/evaluacions')"
         class="btn btn-success btn-sm"
