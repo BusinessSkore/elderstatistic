@@ -78,9 +78,36 @@
     </th>
     <th>SUPERVISOR</th>
     <th>LLAMAR</th>
-    <th v-if="!this.$store.state.user.type == 'Supervisor en Sitio'">INACTIVAR</th>
-    <th v-if="!this.$store.state.user.type == 'Supervisor en Sitio'">COMENTARIO</th>
-    <th v-if="!this.$store.state.user.type == 'Supervisor en Sitio'">FECHA</th>
+    <th
+      v-if="
+        this.$store.state.user.type == 'Auxiliar de Convocatoria' ||
+          this.$store.state.user.type == 'Gerente de Operaciones' ||
+          this.$store.state.user.type == 'Coordinador de Operaciones' ||
+          this.$store.state.user.type == 'Encargada de Convocatoria'
+      "
+    >
+      INACTIVAR
+    </th>
+    <th
+      v-if="
+        this.$store.state.user.type == 'Auxiliar de Convocatoria' ||
+          this.$store.state.user.type == 'Gerente de Operaciones' ||
+          this.$store.state.user.type == 'Coordinador de Operaciones' ||
+          this.$store.state.user.type == 'Encargada de Convocatoria'
+      "
+    >
+      COMENTARIO
+    </th>
+    <th
+      v-if="
+        this.$store.state.user.type == 'Auxiliar de Convocatoria' ||
+          this.$store.state.user.type == 'Gerente de Operaciones' ||
+          this.$store.state.user.type == 'Coordinador de Operaciones' ||
+          this.$store.state.user.type == 'Encargada de Convocatoria'
+      "
+    >
+      FECHA
+    </th>
     <th>UNAP</th>
     <!-- <th>AFILIACION</th> -->
     <!-- <th
@@ -154,7 +181,14 @@
           "
         ></i>
       </td>
-      <td v-if="!this.$store.state.user.type == 'Supervisor en Sitio'">
+      <td
+        v-if="
+          this.$store.state.user.type == 'Auxiliar de Convocatoria' ||
+            this.$store.state.user.type == 'Gerente de Operaciones' ||
+            this.$store.state.user.type == 'Coordinador de Operaciones' ||
+            this.$store.state.user.type == 'Encargada de Convocatoria'
+        "
+      >
         <div v-if="this.diasTranscurr(this.diffDate(evaluacion.fecha))">
           <div class="form-check form-switch">
             <input
@@ -167,7 +201,14 @@
           </div>
         </div>
       </td>
-      <td v-if="!this.$store.state.user.type == 'Supervisor en Sitio'">
+      <td
+        v-if="
+          this.$store.state.user.type == 'Auxiliar de Convocatoria' ||
+            this.$store.state.user.type == 'Gerente de Operaciones' ||
+            this.$store.state.user.type == 'Coordinador de Operaciones' ||
+            this.$store.state.user.type == 'Encargada de Convocatoria'
+        "
+      >
         <select
           v-if="this.diasTranscurr(this.diffDate(evaluacion.fecha))"
           @change="handleConvocar(evaluacion, 'comentarioConvoc')"
@@ -198,7 +239,16 @@
         <option/>
         <select/> -->
       </td>
-      <td v-if="!this.$store.state.user.type == 'Supervisor en Sitio'">{{ this.formatDate(evaluacion.fechaComent) }}</td>
+      <td
+        v-if="
+          this.$store.state.user.type == 'Auxiliar de Convocatoria' ||
+            this.$store.state.user.type == 'Gerente de Operaciones' ||
+            this.$store.state.user.type == 'Coordinador de Operaciones' ||
+            this.$store.state.user.type == 'Encargada de Convocatoria'
+        "
+      >
+        {{ this.formatDate(evaluacion.fechaComent) }}
+      </td>
       <td>
         {{ evaluacion.unap }}
       </td>
