@@ -378,7 +378,7 @@
       <a
         target="_blank"
         class="navbar-option"
-        href="https://isys-assets-bucket.s3.amazonaws.com/AWSDynamoDBData/backup.json"
+        href="https://isys-assets-bucket.s3.amazonaws.com/AWSDynamoDBData/backup.json.gz"
         ><i class="fas fa-download"></i> Descargar Backup</a
       >
       <!-- <div id="embeddingContainerGtorSenasa"></div> -->
