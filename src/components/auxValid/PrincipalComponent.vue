@@ -863,6 +863,8 @@ export default {
           nombre: "LEANDRO RAMON GUERRERO AVILA ",
         },{
           nombre: "EMELY MABEL MATOS PEÑA ",
+        },{
+          nombre: "ISAAC JAVIER MARTINEZ SALDAÑA ",
         },
       ];
 
@@ -1056,6 +1058,8 @@ export default {
           nombre: "LEANDRO RAMON GUERRERO AVILA ",
         },{
           nombre: "EMELY MABEL MATOS PEÑA ",
+        },{
+          nombre: "ISAAC JAVIER MARTINEZ SALDAÑA ",
         },
       ];
     },

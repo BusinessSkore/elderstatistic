@@ -869,6 +869,8 @@ export default {
           nombre: "LEANDRO RAMON GUERRERO AVILA ",
         },{
           nombre: "EMELY MABEL MATOS PEÑA ",
+        },{
+          nombre: "ISAAC JAVIER MARTINEZ SALDAÑA ",
         },
       ];
       this.$store.state.user.filteredSupervisores = [
@@ -1067,6 +1069,8 @@ export default {
           nombre: "LEANDRO RAMON GUERRERO AVILA ",
         },{
           nombre: "EMELY MABEL MATOS PEÑA ",
+        },{
+          nombre: "ISAAC JAVIER MARTINEZ SALDAÑA ",
         },
       ];
     },
